@@ -105,8 +105,8 @@ const cardsSlice = createSlice({
 			console.log(state.mixedCards[action.payload].isFlipped);
 			state.mixedCards[action.payload].isFlipped = true;
 		},
-		control: async (state, action) => {
-			if (action.payload[0].name === action.payload[1].name) {
+		control: (state, action) => {
+			/* if (action.payload[0].name === action.payload[1].name) {
 				console.log("match");
 				state.mixedCards.forEach(card => {
 					if (card.name === action.payload[0].name) {
@@ -115,6 +115,20 @@ const cardsSlice = createSlice({
 				});
 			} else {
 				console.log("not match");
+				state.mixedCards.forEach(card => {
+					if (card.name === action.payload[0].name || card.name === action.payload[1].name) {
+						card.isFlipped = false;
+					}
+				});
+			} */
+			if (action.payload[0].name === action.payload[1].name) {
+				state.mixedCards.forEach(card => {
+					if (card.name === action.payload[0].name) {
+						card.isMatched = true;
+					}
+				});
+			} else {
+				console.log("calisiyor");
 				state.mixedCards.forEach(card => {
 					if (card.name === action.payload[0].name || card.name === action.payload[1].name) {
 						card.isFlipped = false;

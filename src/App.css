@@ -2,6 +2,11 @@
 	width: 100%;
 	height: 100%;
 	text-align: center;
+	transition: 2s;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	position: relative;
+	-webkit-perspective: 1000px;
+	perspective: 1000px;
 }
 
 .front {
@@ -14,4 +19,6 @@
 	justify-content: center;
 	align-items: center;
 	opacity: 0.8;
+	transition-duration: 1s;
+	transform: scale(2);
 }

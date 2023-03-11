@@ -43,12 +43,12 @@ function CardContainer() {
 	};
 
 	useEffect(() => {
-		console.log(selectedCards);
 		if (selectedCards.length === 2) {
-			dispatch(control(selectedCards));
-			setSelectedCards([]);
+			setTimeout(() => {
+				dispatch(control(selectedCards));
+				setSelectedCards([]);
+			}, 1000);
 		}
-		console.log(cards);
 	}, [selectedCards]);
 
 	return (
@@ -57,7 +57,7 @@ function CardContainer() {
 			<button onClick={startGame} style={{ width: "100px", height: "30px" }}>
 				Start game
 			</button>
-			{cards  && (
+			{cards && (
 				<div
 					style={{
 						width: "50%",
