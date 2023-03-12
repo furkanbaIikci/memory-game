@@ -31,6 +31,7 @@ const cardsSlice = createSlice({
 				isFlipped: false,
 				isMatched: false,
 			},
+			/*
 			{
 				name: "grunt",
 				isFlipped: false,
@@ -46,7 +47,7 @@ const cardsSlice = createSlice({
 				isFlipped: false,
 				isMatched: false,
 			},
-			{
+			 {
 				name: "babel",
 				isFlipped: false,
 				isMatched: false,
@@ -90,45 +91,30 @@ const cardsSlice = createSlice({
 				name: "browserify",
 				isFlipped: false,
 				isMatched: false,
-			},
+			}, */
 		],
 		mixedCards: [],
+		points: 0,
 	},
 	reducers: {
 		mixCards: state => {
 			let arr = state.cards.concat(state.cards);
 			let mixedArr = arr.sort(() => Math.random() - 0.5);
 			state.mixedCards = mixedArr;
-			console.log(state.mixedCards);
 		},
 		rotate: (state, action) => {
-			console.log(state.mixedCards[action.payload].isFlipped);
 			state.mixedCards[action.payload].isFlipped = true;
 		},
 		control: (state, action) => {
-			/* if (action.payload[0].name === action.payload[1].name) {
-				console.log("match");
-				state.mixedCards.forEach(card => {
-					if (card.name === action.payload[0].name) {
-						card.isMatched = true;
-					}
-				});
-			} else {
-				console.log("not match");
-				state.mixedCards.forEach(card => {
-					if (card.name === action.payload[0].name || card.name === action.payload[1].name) {
-						card.isFlipped = false;
-					}
-				});
-			} */
 			if (action.payload[0].name === action.payload[1].name) {
+				state.points += 50;
 				state.mixedCards.forEach(card => {
 					if (card.name === action.payload[0].name) {
 						card.isMatched = true;
 					}
 				});
 			} else {
-				console.log("calisiyor");
+				state.points -= 10;
 				state.mixedCards.forEach(card => {
 					if (card.name === action.payload[0].name || card.name === action.payload[1].name) {
 						card.isFlipped = false;
@@ -136,9 +122,12 @@ const cardsSlice = createSlice({
 				});
 			}
 		},
+		resetPoints: state => {
+			state.points = 0;
+		},
 	},
 });
 
-export const { mixCards, rotate, control } = cardsSlice.actions;
+export const { mixCards, rotate, control, resetPoints } = cardsSlice.actions;
 export const selectCards = state => state.cards.cards;
 export default cardsSlice.reducer;
