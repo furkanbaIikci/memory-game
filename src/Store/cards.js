@@ -31,7 +31,6 @@ const cardsSlice = createSlice({
 				isFlipped: false,
 				isMatched: false,
 			},
-			/*
 			{
 				name: "grunt",
 				isFlipped: false,
@@ -47,7 +46,7 @@ const cardsSlice = createSlice({
 				isFlipped: false,
 				isMatched: false,
 			},
-			 {
+			{
 				name: "babel",
 				isFlipped: false,
 				isMatched: false,
@@ -91,7 +90,7 @@ const cardsSlice = createSlice({
 				name: "browserify",
 				isFlipped: false,
 				isMatched: false,
-			}, */
+			},
 		],
 		mixedCards: [],
 		points: 0,

@@ -32,7 +32,7 @@ function CardContainer() {
 
 	useEffect(() => {
 		dispatch(mixCards());
-	}, []);
+	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 	useEffect(() => {
 		if (selectedCards.length === 2) {
@@ -41,11 +41,11 @@ function CardContainer() {
 				setSelectedCards([]);
 			}, 1000);
 		}
-	}, [selectedCards]);
+	}, [selectedCards]); // eslint-disable-line react-hooks/exhaustive-deps
 
 	return (
 		<div>
-			<div style={{ fontSize: "30px", textAlign: "center", marginTop: "30px" }}>Total Points : {points}</div>
+			<div style={{ fontSize: "30px", textAlign: "center", marginTop: "30px"}}>Total Points : {points}</div>
 			{cards && (
 				<div
 					style={{
@@ -57,11 +57,12 @@ function CardContainer() {
 						flexWrap: "wrap",
 						justifyContent: "center",
 						padding: "30px 0",
+						borderRadius: '10px' 
 					}}>
 					{cards.map((data, index) => {
 						return (
 							<div
-								onClick={data.isMatched == false ? () => selectCard(index) : null}
+								onClick={data.isMatched === false ? () => selectCard(index) : null}
 								key={index}
 								style={{
 									display: "flex",
