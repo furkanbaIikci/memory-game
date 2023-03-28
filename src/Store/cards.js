@@ -123,10 +123,11 @@ const cardsSlice = createSlice({
 		},
 		resetPoints: state => {
 			state.points = 0;
-		},
+		}
+
 	},
 });
 
-export const { mixCards, rotate, control, resetPoints } = cardsSlice.actions;
+export const { mixCards, rotate, control, resetPoints, restartGame } = cardsSlice.actions;
 export const selectCards = state => state.cards.cards;
 export default cardsSlice.reducer;

@@ -45,7 +45,7 @@ function CardContainer() {
 
 	return (
 		<div>
-			<div style={{ fontSize: "30px", textAlign: "center", marginTop: "30px"}}>Total Points : {points}</div>
+			<div style={{ fontSize: "30px", textAlign: "center", marginTop: "30px" }}>Total Points : {points}</div>
 			{cards && (
 				<div
 					style={{
@@ -57,7 +57,7 @@ function CardContainer() {
 						flexWrap: "wrap",
 						justifyContent: "center",
 						padding: "30px 0",
-						borderRadius: '10px' 
+						borderRadius: "10px",
 					}}>
 					{cards.map((data, index) => {
 						return (
@@ -99,7 +99,11 @@ function CardContainer() {
 					)}
 				</div>
 			)}
-			{selectedCards.length}
+			
+			{/* Restart Button */}
+			
+				<button onClick={restartGame} className="restart-game" style={{margin: '0 auto', display: 'block'}}>Restart Game</button>
+			
 		</div>
 	);
 }
